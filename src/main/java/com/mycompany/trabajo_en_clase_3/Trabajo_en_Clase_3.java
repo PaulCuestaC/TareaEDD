@@ -26,8 +26,8 @@ public class Trabajo_en_Clase_3 {
                    
                     break;
                 case 2:
+                    
                     agenda.BuscarContacto();
-
                     break;
                 case 3:
                     agenda.EliminarContacto();

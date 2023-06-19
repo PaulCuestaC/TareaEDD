@@ -12,6 +12,7 @@ public class ListaEnlazadaGenerico<T> {
 
     private NodoGenerico<T> cabeza;
     private int tamaño;
+    private int tamaño2;
 
     //agregar
     public void agregar(T elemento) {
@@ -37,30 +38,44 @@ public class ListaEnlazadaGenerico<T> {
     public T getElementoByNombre(String nombre) {
         NodoGenerico<T> actual = cabeza;
         for (int i = 0; i < tamaño; i++) {
-           actual = actual.getSiguiente();
+            actual = actual.getSiguiente();
             if (actual.getElemento() == nombre) {
                 System.out.println(actual.getElemento());
             }
-            
 
         }
         return actual.getElemento();
     }
 
-    public void deleteByNombre(String indice) {
+    public void instanciar(String indice) {
         NodoGenerico<T> actual = cabeza;
         for (int i = 0; i < tamaño; i++) {
             if (actual.getElemento() == indice) {
                 NodoGenerico<T> anterior = obtenerNodoByIndice(i - 1);
                 NodoGenerico<T> nodoActual = anterior.getSiguiente();
                 anterior.setSiguiente(nodoActual.getSiguiente());
-            
-                        }
+
+            }
             actual = actual.getSiguiente();
 
         }
- 
+
         tamaño--;
+    }
+
+    public void deleteByNombre(String indice) {
+        NodoGenerico<T> actual = cabeza;
+        for (int i = 0; i < tamaño; i++) {
+            actual = actual.getSiguiente();
+            if (actual.getElemento() == indice) {
+
+                NodoGenerico<T> anterior = obtenerNodoByIndice(i-1);
+                NodoGenerico<T> nodoActual = anterior.getSiguiente();
+                anterior.setSiguiente(nodoActual.getSiguiente());
+            }
+            tamaño--;
+
+        }
     }
 
     public NodoGenerico<T> obtenerNodoByIndice(int indice) {
