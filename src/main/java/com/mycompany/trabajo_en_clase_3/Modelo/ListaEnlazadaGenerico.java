@@ -69,9 +69,7 @@ public class ListaEnlazadaGenerico<T> {
             actual = actual.getSiguiente();
             if (actual.getElemento() == indice) {
 
-                NodoGenerico<T> anterior = obtenerNodoByIndice(i-1);
-                NodoGenerico<T> nodoActual = anterior.getSiguiente();
-                anterior.setSiguiente(nodoActual.getSiguiente());
+                actual.setElemento(null);
             }
             tamaño--;
 
