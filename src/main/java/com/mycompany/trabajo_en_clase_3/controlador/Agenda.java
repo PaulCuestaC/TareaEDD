@@ -31,6 +31,7 @@ public class Agenda<T> {
     public void BuscarContacto(){ 
         System.out.println("Ingrese el nombre a buscar: ");
         String nombre = scanner.next();
+        lista.instanciar(nombre);
        Contacto elemento = lista.getElementoByNombre(nombre);
 
     System.out.println (
@@ -38,6 +39,7 @@ public class Agenda<T> {
     
       
     }
+    
     public void EliminarContacto(){
         System.out.println("Ingrese el nombre a eliminar: ");
         String nombre = scanner.next();
